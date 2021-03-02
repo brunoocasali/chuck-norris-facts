@@ -1,11 +1,16 @@
 'use strict';
 
 module.exports = function (environment) {
+  const prodEnv =  environment === 'production';
+  const { MIRAGE } = process.env;
+  const enableMirage = eval(MIRAGE) && !prodEnv;
+
   let ENV = {
     modulePrefix: 'chuck-norris-facts',
     environment,
     rootURL: '/',
     locationType: 'auto',
+    START_MIRAGE: enableMirage,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
