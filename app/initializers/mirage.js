@@ -14,13 +14,13 @@ export default {
   // Make sure the mirage will not start twice when we running tests
   // and running the development server.
   name: 'mirage.js',
+  after: 'cypress.js',
 
   initialize(application) {
-    const { START_MIRAGE, MIRAGE_SCENARIO, environment } = config;
-    const scenario = MIRAGE_SCENARIO || 'develop';
+    const { START_MIRAGE, environment } = config;
 
     if (START_MIRAGE && !window.Cypress) {
-      MirageShutdown.server = makeServer({ environment, scenario });
+      MirageShutdown.server = makeServer({ environment });
       application.register('mirage:shutdown', MirageShutdown);
     }
   }
