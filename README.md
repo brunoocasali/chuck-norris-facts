@@ -3,6 +3,11 @@
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
+## Images & Resources
+
+- Chuck Norris image: https://www.pngitem.com/middle/iRTwwTo_transparent-chuck-norris-png-scribblenauts-chuck-norris-png/
+- Base blockquote css ideia/code: https://codepen.io/jupago/pen/GPxqLX?editors=1100
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
