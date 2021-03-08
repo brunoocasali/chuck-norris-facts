@@ -5,7 +5,7 @@
   "description": "Small description for chuck-norris-facts goes here",
   "repository": "",
   "license": "MIT",
-  "author": "",
+  "author": "Bruno Casali @brunoocasali",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -20,7 +20,22 @@
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "cy:run": "cypress run",
+    "cy:verify": "cypress verify",
+    "start:e2e": "COVERAGE=true ember serve",
+    "test:cov": "LINTER=false COVERAGE=true ember test",
+    "test:e2e": "cypress open",
+    "test:e2e:ci": "start-server-and-test start:e2e http://localhost:4200 cy:run",
+    "posttest": "npm run report:combined",
+    "precopy:reports": "npm run mkdir:reports",
+    "mkdir:reports": "mkdir reports || true",
+    "cleanup:reports": "rm -rf *-coverage reports || true",
+    "copy:reports": "cp cypress-coverage/coverage-final.json reports/from-cypress.json && cp unit-coverage/coverage-final.json reports/from-unit.json",
+    "precombine:reports": "node bin/postcov.js && npm run copy:reports && mkdir .nyc_output || true",
+    "combine:reports": "npx nyc merge reports && mv coverage.json .nyc_output/out.json",
+    "prereport:combined": "npm run combine:reports",
+    "report:combined": "npx nyc report --reporter=html --reporter=text-summary --reporter=json-summary --report-dir coverage && npm run cleanup:reports"
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.9.2",
@@ -64,7 +79,8 @@
     "nyc": "15.1.0",
     "prettier": "^2.2.1",
     "qunit": "^2.14.0",
-    "qunit-dom": "^1.6.0"
+    "qunit-dom": "^1.6.0",
+    "start-server-and-test": "1.12.0"
   },
   "engines": {
     "node": "10.* || >= 12"
