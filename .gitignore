@@ -24,3 +24,11 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
+
+# Coverage
+
+/coverage/*
+/unit-coverage/*
+/cypress-coverage/*
+.nyc_output
+.DS_Store
