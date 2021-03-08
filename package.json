@@ -30,7 +30,7 @@
     "posttest": "npm run report:combined",
     "precopy:reports": "npm run mkdir:reports",
     "mkdir:reports": "mkdir reports || true",
-    "cleanup:reports": "rm -rf *-coverage reports || true",
+    "cleanup:reports": "rm -rf *-coverage reports .nyc_output || true",
     "copy:reports": "cp cypress-coverage/coverage-final.json reports/from-cypress.json && cp unit-coverage/coverage-final.json reports/from-unit.json",
     "precombine:reports": "node bin/postcov.js && npm run copy:reports && mkdir .nyc_output || true",
     "combine:reports": "npx nyc merge reports && mv coverage.json .nyc_output/out.json",
@@ -87,5 +87,15 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "nyc": {
+    "report-dir": "cypress-coverage",
+    "reporter": [
+      "json"
+    ],
+    "check-coverage": true,
+    "statements": 66,
+    "lines": 66.8,
+    "branches": 60
   }
 }
