@@ -13,17 +13,15 @@ export default {
           const methods = ["get", "put", "patch", "post", "delete"];
           const hosts = [config.API];
 
-          hosts.forEach((host) => {
-            this.urlPrefix = host;
-
-            methods.forEach((method) => {
-              this[method]("/*", async (_schema, request) => {
+          for (const domain of ["/", ...hosts]) {
+            for (const method of methods) {
+              this[method](`${domain}/*`, async (_schema, request) => {
                 let [status, headers, body] = await window.handleFromCypress(request);
 
                 return new Response(status, headers, body);
               });
-            });
-          });
+            }
+          }
         }
       });
     }
