@@ -132,3 +132,8 @@ h1 {
 .red {
   color: #e74848;
 }
+
+mark {
+  color: white;
+  background-color: unset;
+}
