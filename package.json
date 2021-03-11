@@ -58,7 +58,6 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.1",
     "ember-concurrency": "^2.0.2",
-    "ember-data": "~3.25.0",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.0.4",
     "ember-load-initializers": "^2.1.2",
@@ -97,8 +96,8 @@
       "json"
     ],
     "check-coverage": true,
-    "statements": 66,
-    "lines": 66.8,
-    "branches": 60
+    "statements": 80,
+    "lines": 80,
+    "branches": 80
   }
 }
