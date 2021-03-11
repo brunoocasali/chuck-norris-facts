@@ -1,0 +1,110 @@
+name: CI
+
+on: [pull_request]
+
+env:
+  NODE_VERSION: 14.12
+
+jobs:
+  lint:
+    name: Linters
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+  qunit:
+    name: QUnit
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm ci
+      - name: Run unit tests
+        run: npm run test:cov
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: unit-coverage
+          path: unit-coverage
+
+  e2e:
+    name: e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run start:e2e
+          wait-on: http://localhost:4200
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-coverage
+          path: cypress-coverage
+
+  coverage:
+    name: Coverage Reports
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    needs: [qunit, e2e]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Download e2e coverage
+        uses: actions/download-artifact@v2
+        with:
+          name: cypress-coverage
+          path: cypress-coverage
+
+      - name: Download unit coverage
+        uses: actions/download-artifact@v2
+        with:
+          name: unit-coverage
+          path: unit-coverage
+
+      - name: Collect reports
+        run: npm run report:combined
