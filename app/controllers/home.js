@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
+import { dropTask } from 'ember-concurrency';
 
 import ENV from 'chuck-norris-facts/config/environment';
 
@@ -9,23 +10,23 @@ export default class HomeController extends Controller {
   constructor() {
     super(...arguments);
 
-    this.random();
+    this.random.perform();
   }
 
-  async random() {
+  @dropTask *random() {
     let counter = 0;
     let unchanged = true;
     let currentData = this.data;
 
     do {
-      const response = await fetch(`${ENV.API}/jokes/random`, {
+      const response = yield fetch(`${ENV.API}/jokes/random`, {
         method: 'GET',
         headers: {
           'content-type': 'application/json'
         }
       });
 
-      currentData = await response.json();
+      currentData = yield response.json();
 
       if (this.data?.id !== currentData?.id) {
         unchanged = false;

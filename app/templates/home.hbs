@@ -1,10 +1,16 @@
 {{page-title "Home"}}
 
-<Fact @data={{this.data}} />
+{{#if this.random.isRunning}}
+  <div class="wrapper qa-loader">
+    <Loading />
+  </div>
+{{else}}
+  <Fact @data={{this.data}} />
 
-<button
-  class="button qa-fact-btn"
-  {{on "click" (action this.random)}}
->
-  <span class="red">see</span>&nbsp;<span class="white">more...</span>
-</button>
+  <button
+    class="button qa-fact-btn"
+    {{on "click" (perform this.random)}}
+  >
+    <span class="red">see</span>&nbsp;<span class="white">more...</span>
+  </button>
+{{/if}}

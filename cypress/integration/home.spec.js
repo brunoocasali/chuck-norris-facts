@@ -22,9 +22,11 @@ describe('Home', () => {
 
   it('loads random fact automatically', () => {
     mirage.create('fact');
+    mirage.timing = 200;
 
     cy.visit('/');
 
+    cy.get('.qa-loader').should('exist');
     cy.get('.qa-fact').should('exist');
     cy.get('.qa-fact > .qa-fact-value').should('not.be.empty');
   });

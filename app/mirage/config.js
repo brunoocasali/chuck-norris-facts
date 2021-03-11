@@ -8,7 +8,7 @@ import FactFactory from "./factories/fact";
 export function makeServer({ environment = "test" } = {}) {
   return new Server({
     environment,
-    timing: 200,
+    timing: 2000,
 
     models: {
       fact: Model,
