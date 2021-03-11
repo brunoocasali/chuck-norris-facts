@@ -1,7 +1,8 @@
 # chuck-norris-facts
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+[![CI](https://github.com/brunoocasali/chuck-norris-facts/actions/workflows/ci.yml/badge.svg)](https://github.com/brunoocasali/chuck-norris-facts/actions/workflows/ci.yml)
+
+A simple hello-world style ember.js application :heart:
 
 ## Images & Resources
 
