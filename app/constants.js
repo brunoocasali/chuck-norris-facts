@@ -34,5 +34,5 @@ export const RESERVED_WORDS = [
   'roundhoused',
   'roundhousekick',
   'fist',
-  'roundhouse kick'
-]
+  'roundhouse kick',
+];

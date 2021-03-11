@@ -2,14 +2,14 @@ import { Factory } from 'miragejs';
 import { random } from 'faker';
 
 export default Factory.extend({
-  iconUrl: "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+  iconUrl: 'https://assets.chucknorris.host/img/avatar/chuck-norris.png',
 
   id() {
     return random.uuid();
   },
 
   url() {
-    return `https://api.chucknorris.io/jokes/${this.id}`
+    return `https://api.chucknorris.io/jokes/${this.id}`;
   },
 
   value() {
@@ -20,7 +20,7 @@ export default Factory.extend({
       'coyote vs road runner is just a performance how fast can Chuck Norris bip-iping',
       "Every time someone types 'Chuck Norris', a gas station explodes",
       'On a recent trip to Vegas, Chuck Norris won a hand of blackjack with 21 aces.',
-      "Hurricanes are mother nature's way of running from Chuck Norris."
+      "Hurricanes are mother nature's way of running from Chuck Norris.",
     ]);
-  }
+  },
 });

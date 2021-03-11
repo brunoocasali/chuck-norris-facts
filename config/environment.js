@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (environment) {
-  const prodEnv =  environment === 'production';
+  const prodEnv = environment === 'production';
   const { MIRAGE } = process.env;
   const enableMirage = eval(MIRAGE) && !prodEnv;
 

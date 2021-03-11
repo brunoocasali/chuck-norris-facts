@@ -3,7 +3,7 @@ import { random } from 'faker';
 /*
   chucknorris.io configuration:
 */
-export default function() {
+export default function () {
   // Using a hardcoded and interpoled string instead of urlPrefix
   // because today miragejs does not support multi-api's
   // https://github.com/miragejs/discuss/issues/44

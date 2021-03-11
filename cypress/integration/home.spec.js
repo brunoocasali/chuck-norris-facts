@@ -1,11 +1,11 @@
-import { makeServer } from "../../app/mirage/config";
+import { makeServer } from '../../app/mirage/config';
 
 describe('Home', () => {
   let mirage;
 
   beforeEach(() => {
     mirage && mirage.shutdown();
-    mirage = makeServer({ environment: "test" });
+    mirage = makeServer({ environment: 'test' });
   });
 
   afterEach(() => {
@@ -50,7 +50,7 @@ describe('Home', () => {
 
       mirage.get(`https://api.chucknorris.io/jokes/random`, () => {
         // the idea is to force same response even in multiple callings
-        counter ++;
+        counter++;
 
         return [1, 2, 3].includes(counter) ? fact1 : fact2;
       });
@@ -70,10 +70,10 @@ describe('Home', () => {
 
       let counter = 0;
 
-      mirage.logging = true
+      mirage.logging = true;
       mirage.get(`https://api.chucknorris.io/jokes/random`, () => {
         // the idea is to force same response even in multiple callings
-        counter ++;
+        counter++;
 
         // 1 (first call does not counts) + 5 retries
         return fact1;

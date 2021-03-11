@@ -15,9 +15,11 @@ module.exports = {
     'eslint:recommended',
     'plugin:ember/recommended',
     'plugin:prettier/recommended',
+    'plugin:cypress/recommended',
   ],
   env: {
     browser: true,
+    node: true,
   },
   rules: {},
   overrides: [

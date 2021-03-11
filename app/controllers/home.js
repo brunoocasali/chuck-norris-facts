@@ -22,8 +22,8 @@ export default class HomeController extends Controller {
       const response = yield fetch(`${ENV.API}/jokes/random`, {
         method: 'GET',
         headers: {
-          'content-type': 'application/json'
-        }
+          'content-type': 'application/json',
+        },
       });
 
       currentData = yield response.json();
@@ -32,7 +32,7 @@ export default class HomeController extends Controller {
         unchanged = false;
         this.data = currentData;
       } else {
-        counter ++;
+        counter++;
       }
     } while (unchanged && counter < 5);
   }

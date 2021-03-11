@@ -23,5 +23,5 @@ export default {
       MirageShutdown.server = makeServer({ environment });
       application.register('mirage:shutdown', MirageShutdown);
     }
-  }
-}
+  },
+};

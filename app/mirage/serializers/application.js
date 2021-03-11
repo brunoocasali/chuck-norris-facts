@@ -11,5 +11,5 @@ export default RestSerializer.extend({
 
   typeKeyForModel(model) {
     return snakeCase(model);
-  }
+  },
 });
