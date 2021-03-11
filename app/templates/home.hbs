@@ -8,7 +8,11 @@
   <Fact @data={{this.data}} />
 
   <button
-    class="button qa-fact-btn" type="button" {{on "click" (perform this.random)}}
+    class="button qa-fact-btn"
+    type="button"
+    {{on "click" (perform this.random)}}
+    {{on-key 'Enter'}}
+    {{on-key 'Space'}}
   >
     <span class="red">see</span>&nbsp;<span class="white">more...</span>
   </button>

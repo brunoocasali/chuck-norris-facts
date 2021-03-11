@@ -138,6 +138,13 @@ mark {
   background-color: unset;
 }
 
+.click-advice {
+  bottom: 10px;
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  position: fixed;
+}
+
 /* loader */
 .loader {
   border: 6px solid #f3f3f3; /* Light grey */

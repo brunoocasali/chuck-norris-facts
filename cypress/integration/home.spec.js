@@ -93,4 +93,31 @@ describe('Home', () => {
       });
     });
   });
+
+  context('with shortcuts', () => {
+    beforeEach(() => {
+      mirage.timing = 200;
+      mirage.createList('fact', 2);
+    });
+
+    it('loads new fact after keyboard keyup/down in "enter" key', () => {
+      cy.visit('/');
+
+      cy.get('.qa-loader').should('exist');
+
+      cy.get('.ember-application').trigger('keyup', { keyCode: 13, which: 13 });
+
+      cy.get('.qa-loader').should('exist');
+    });
+
+    it('loads new fact after keyboard keyup/down in "space" key', () => {
+      cy.visit('/');
+
+      cy.get('.qa-loader').should('exist');
+
+      cy.get('.ember-application').trigger('keyup', { keyCode: 32, which: 32 });
+
+      cy.get('.qa-loader').should('exist');
+    });
+  });
 });
