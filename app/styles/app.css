@@ -140,6 +140,7 @@ mark {
   display: block;
   font-family: 'Barlow Condensed', sans-serif;
   position: fixed;
+  left: 10px;
   font-size: 1.2rem;
 }
 
@@ -162,4 +163,21 @@ mark {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* 404 */
+
+.title {
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  display: grid;
+  margin-top: 30%;
+}
+
+.go-back-link {
+  margin-top: 30px;
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.2rem;
 }
