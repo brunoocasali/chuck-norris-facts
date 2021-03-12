@@ -1,5 +1,6 @@
 # chuck-norris-facts
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/afbd7950-533e-48ce-8324-856ccd0aaa06/deploy-status)](https://app.netlify.com/sites/ember-chuck-facts/deploys)
 [![CI](https://github.com/brunoocasali/chuck-norris-facts/actions/workflows/ci.yml/badge.svg)](https://github.com/brunoocasali/chuck-norris-facts/actions/workflows/ci.yml)
 
 A simple hello-world style ember.js application :heart:
