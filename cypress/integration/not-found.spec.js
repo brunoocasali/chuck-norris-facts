@@ -21,7 +21,9 @@ describe('Home', () => {
       cy.get('a.qa-link').should('exist');
       cy.get('title').contains('404 | Chuck Norris - Facts');
 
-      cy.contains("You don't found this page but you know, Chuck Norris can found you...");
+      cy.contains(
+        "You don't found this page but you know, Chuck Norris can found you..."
+      );
     });
 
     it('goes back to home if click in link', () => {
@@ -31,7 +33,7 @@ describe('Home', () => {
 
       cy.get('.qa-link').click();
 
-      cy.url().should('eq', `${Cypress.config().baseUrl}/`)
+      cy.url().should('eq', `${Cypress.config().baseUrl}/`);
     });
   });
 });

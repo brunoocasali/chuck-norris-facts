@@ -2,8 +2,8 @@
   "name": "chuck-norris-facts",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for chuck-norris-facts goes here",
-  "repository": "",
+  "description": "Ember.js app to show Chuck Norris facts",
+  "repository": "https://github.com/brunoocasali/chuck-norris-facts",
   "license": "MIT",
   "author": "Bruno Casali @brunoocasali",
   "directories": {
