@@ -74,7 +74,7 @@
     "eslint-plugin-ember": "^10.2.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "faker": "^5.4.0",
+    "faker": "^5.5.1",
     "loader.js": "^4.7.0",
     "lodash.snakecase": "^4.1.1",
     "miragejs": "^0.1.41",
