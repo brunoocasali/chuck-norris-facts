@@ -100,5 +100,10 @@
     "statements": 80,
     "lines": 80,
     "branches": 80
+  },
+  "dependencies": {
+    "@embroider/compat": "^0.37.0",
+    "@embroider/core": "^0.37.0",
+    "@embroider/webpack": "^0.37.0"
   }
 }
