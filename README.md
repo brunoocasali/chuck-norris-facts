@@ -5,6 +5,8 @@
 
 A simple hello-world style ember.js application :heart:
 
+See it live https://ember-chuck-facts.netlify.app
+
 ## Images & Resources
 
 - Chuck Norris image: https://www.pngitem.com/middle/iRTwwTo_transparent-chuck-norris-png-scribblenauts-chuck-norris-png/
