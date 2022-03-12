@@ -82,7 +82,7 @@
     "nyc": "15.1.0",
     "prettier": "^2.2.1",
     "qunit": "^2.14.1",
-    "qunit-dom": "^1.6.0",
+    "qunit-dom": "^2.0.0",
     "start-server-and-test": "1.14.0"
   },
   "engines": {
